@@ -101,7 +101,7 @@ fbq('track','PageView');
 <script>
 'use strict';
 // Configure antes de publicar: WhatsApp da imobiliária (país + DDD + número) e URL do webhook da planilha (Google Apps Script).
-const WHATSAPP_NUMERO=''; // Consultor Djou (país + DDD + número)
+const WHATSAPP_NUMERO=''; // Consultor Djonatan Howler, o Djou (país + DDD + número)
 const PLANILHA_WEBHOOK='https://script.google.com/macros/s/AKfycbzxx8oTd-5DysInZeI55NMRFNJqOhbTk7Zz0EjHErqvoyRNSKYzWkrrsYcdGMcEcXbq/exec'; // Apps Script do Djou
 const questions=[
  {id:'name',group:'Identificação e contato',title:'Como podemos chamar você?',label:'Nome completo',placeholder:'Digite seu nome completo',autocomplete:'name'},
@@ -136,7 +136,7 @@ function render(){
  document.querySelector('[role=progressbar]').setAttribute('aria-valuenow',pct);
  if(finished){
  const rows=list.map(q=>[LABELS[q.id],q.id]);
- const intro='Olá, Djou! Preenchi o formulário e gostaria de receber opções de imóveis para o meu perfil.';
+ const intro='Olá, Djonatan! Preenchi o formulário e gostaria de receber opções de imóveis para o meu perfil.';
  const message=intro+'\n\n'+rows.map(([label,id])=>label+': '+answers[id]).join('\n')+(ORIGEM.ad?'\nImóvel de interesse: '+imovelAmigavel(ORIGEM.ad):'');
  const whatsappLink='https://wa.me/'+WHATSAPP_NUMERO+'?text='+encodeURIComponent(message);
  const leadPhoneDigits=(answers.phone||'').replace(/\D/g,'');
